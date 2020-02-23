@@ -25,6 +25,13 @@ def IncrementalOTA_InstallEnd(info):
   OTA_InstallEnd(info)
   return
 
+def AddImageMulti(info, basename, dests):
+  name = basename
+  data = info.input_zip.read("IMAGES/" + basename)
+  common.ZipWriteStr(info.output_zip, name, data)
+  for dest in dests:
+    info.script.AppendExtra('package_extract_file("%s", "%s");' % (name, dest))
+
 def AddImage(info, basename, dest):
   name = basename
   data = info.input_zip.read("IMAGES/" + basename)
@@ -32,7 +39,12 @@ def AddImage(info, basename, dest):
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (name, dest))
 
 def OTA_InstallEnd(info):
-  info.script.Print("Patching firmware images...")
+  info.script.Print("Patching VBMeta and DTBO images...")
   AddImage(info, "vbmeta.img", "/dev/block/by-name/vbmeta")
   AddImage(info, "dtbo.img", "/dev/block/by-name/dtbo")
+  info.script.Print("Patching Bootloader and Preloader...")
+  lk_parts = ["/dev/block/by-name/lk", "/dev/block/by-name/lk2"]
+  preloader_parts = ["/dev/block/sda", "/dev/block/sdb"]
+  AddImageMulti(info, "lk.img", lk_parts)
+  AddImageMulti(info, "preloader_begonia_ufs.img", preloader_parts)
   return

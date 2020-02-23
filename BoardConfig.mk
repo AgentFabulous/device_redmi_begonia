@@ -136,5 +136,9 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 BOARD_VNDK_RUNTIME_DISABLE := true
 
+BOARD_PREBUILT_EXTRA_IMAGES := \
+    $(DEVICE_PATH)/bootloader/lk.img \
+    $(DEVICE_PATH)/bootloader/preloader_begonia_ufs.img
+
 # Inherit from the proprietary version
 -include vendor/redmi/begonia/BoardConfigVendor.mk
