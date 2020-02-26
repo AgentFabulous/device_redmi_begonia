@@ -1186,7 +1186,7 @@ on property:service.mbim.enable=1
 
 # FPSGO FBT Game
 on init
-    insmod /vendor/lib/modules/fpsgo.ko
+    insmod /vendor/lib/modules_prebuilt/fpsgo.ko
     symlink /dev/block/platform/bootdevice /dev/block/bootdevice
 
 # VSIM service (vendor OSI)
