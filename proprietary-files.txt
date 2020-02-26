@@ -645,8 +645,6 @@ vendor/lib64/libarcsoft_portrait_lighting.so
 vendor/lib64/libarcsoft_portrait_lighting_c.so
 vendor/lib64/libarcsoft_preview_deflicker.so
 
-# Camera-bin
-
 # Camera-configs
 vendor/camera/fonts/MFYueYuan-Regular.ttf
 vendor/camera/fonts/MI+LanTing_GB+Outside+YS_V2.3_20160322.ttf
@@ -661,6 +659,10 @@ vendor/etc/camera/libalfpc_tuning_20181222.bin
 vendor/etc/camera/sceneDetection.xml
 vendor/etc/camera/vidhance_calibration
 vendor/etc/camera/visidon_clearshot_params_algoup.xml
+
+# Clearkey DRM
+vendor/bin/hw/android.hardware.drm@1.1-service.clearkey
+vendor/etc/init/android.hardware.drm@1.1-service.clearkey.rc
 
 # Consumerir
 vendor/lib/hw/consumerir.mt6785.so
@@ -755,8 +757,6 @@ vendor/lib/libgeofence.so
 vendor/lib64/hw/vendor.mediatek.hardware.gnss@1.1-impl.so
 vendor/lib64/vendor.mediatek.hardware.gnss@1.1.so
 
-# GPS-Hardware
-
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service
 vendor/etc/init/android.hardware.gatekeeper@1.0-service.rc
@@ -815,15 +815,12 @@ vendor/lib64/libkeystore-wifi-hidl.so
 vendor/lib/hw/sound_trigger.primary.mt6785.so
 vendor/lib64/hw/sound_trigger.primary.mt6785.so
 
-# Media
-
 # Media-Hardware
 vendor/lib/libstagefrighthw.so
 vendor/lib64/libstagefrighthw.so
 
 # Mediatek
 vendor/bin/hw/android.hardware.audio@4.0-service-mediatek
-vendor/bin/hw/android.hardware.light@2.0-service-mediatek
 vendor/bin/hw/android.hardware.sensors@1.0-service-mediatek
 vendor/bin/hw/android.hardware.usb@1.1-service-mediatek
 vendor/bin/hw/android.hardware.wifi@1.0-service-mediatek
@@ -837,7 +834,6 @@ vendor/bin/hw/vendor.mediatek.hardware.nvram@1.1-service
 vendor/bin/hw/vendor.mediatek.hardware.power@2.1-service
 vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service
 vendor/etc/init/android.hardware.audio@4.0-service-mediatek.rc
-vendor/etc/init/android.hardware.light@2.0-service-mediatek.rc
 vendor/etc/init/android.hardware.sensors@1.0-service-mediatek.rc
 vendor/etc/init/android.hardware.usb@1.1-service-mediatek.rc
 vendor/etc/init/android.hardware.wifi@1.0-service-mediatek.rc
@@ -854,7 +850,6 @@ vendor/etc/init/vendor.mediatek.hardware.pq@2.2-service.rc
 vendor/etc/media_codecs_mediatek_audio.xml
 vendor/etc/media_codecs_mediatek_video.xml
 vendor/lib/hw/android.hardware.audio@4.0-impl-mediatek.so
-vendor/lib/hw/android.hardware.light@2.0-impl-mediatek.so
 vendor/lib/hw/vendor.mediatek.hardware.camera.atms@1.0-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.camera.bgservice@1.1-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.camera.frhandler@1.0-impl.so
@@ -916,7 +911,6 @@ vendor/lib/vendor.mediatek.hardware.pq@2.3.so
 vendor/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 vendor/lib64/hw/android.hardware.audio@4.0-impl-mediatek.so
 vendor/lib64/hw/android.hardware.camera.provider@2.4-impl-mediatek.so
-vendor/lib64/hw/android.hardware.light@2.0-impl-mediatek.so
 vendor/lib64/hw/android.hardware.sensors@1.0-impl-mediatek.so
 vendor/lib64/hw/vendor.mediatek.hardware.camera.atms@1.0-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.camera.bgservice@1.1-impl.so
@@ -1111,18 +1105,12 @@ vendor/bin/hw/android.hardware.neuralnetworks@1.1-service-neuron-ann
 vendor/etc/init/android.hardware.neuralnetworks@1.1-service-gpunn.rc
 vendor/etc/init/android.hardware.neuralnetworks@1.1-service-neuron-ann.rc
 
-# Perf
-
-# Postprocessing
-
 # Power-Hardware
 vendor/bin/hw/power_native_test_v_2_0
 vendor/lib/hw/power.default.so
 vendor/lib/hw/power.mt6785.so
 vendor/lib64/hw/power.default.so
 vendor/lib64/hw/power.mt6785.so
-
-# QMI
 
 # Radio
 vendor/lib/libvsim.so
@@ -1175,8 +1163,6 @@ vendor/lib64/hw/android.hardware.thermal@1.0-impl.so
 vendor/lib/hw/thermal.mt6785.so
 vendor/lib64/hw/thermal.mt6785.so
 
-# Time
-
 # Vibrator
 vendor/bin/hw/android.hardware.vibrator@1.0-service
 vendor/etc/init/android.hardware.vibrator@1.0-service.rc
@@ -1185,8 +1171,21 @@ vendor/lib/hw/vibrator.default.so
 vendor/lib64/hw/android.hardware.vibrator@1.0-impl.so
 vendor/lib64/hw/vibrator.default.so
 
+# Vulkan
+vendor/etc/permissions/android.hardware.vulkan.compute.xml
+vendor/etc/permissions/android.hardware.vulkan.level.xml
+vendor/etc/permissions/android.hardware.vulkan.version.xml
+
 # WiFi
 bin/iwpriv
+vendor/bin/hostapd_cli
+vendor/bin/hw/hostapd
+vendor/bin/hw/wpa_supplicant
+vendor/bin/wpa_cli
+vendor/etc/init/hostapd.android.rc
+vendor/lib/libwpa_client.so
+vendor/lib64/libwifi-hal.so
+vendor/lib64/libwpa_client.so
 
 # Xiaomi
 etc/permissions/vendor-xiaomi-hardware-citsensorservice.xml
@@ -1297,7 +1296,6 @@ vendor/bin/nvram_daemon
 vendor/bin/wlan_assistant
 vendor/bin/wmt_launcher
 vendor/bin/wmt_loader
-vendor/etc/fstab.mt6785
 vendor/etc/init/aee_aedv.rc
 vendor/etc/init/aee_aedv64.rc
 vendor/etc/init/microtrust.init_thh.rc
@@ -1314,7 +1312,6 @@ vendor/etc/stereo.wav
 vendor/fstab.enableswap
 
 # Misc
--vendor/app/NotchOverlay/NotchOverlay.apk
 vendor/bin/aeev
 vendor/bin/aee_aedv
 vendor/bin/aee_aedv64

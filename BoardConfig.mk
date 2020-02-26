@@ -132,11 +132,9 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framework_compatibi
 
 # Treble
 TARGET_COPY_OUT_VENDOR := vendor
-BOARD_VNDK_VERSION := current
 PRODUCT_EXTRA_VNDK_VERSIONS := 28
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-BOARD_VNDK_RUNTIME_DISABLE := true
 
 # Inherit from the proprietary version
 -include vendor/redmi/begonia/BoardConfigVendor.mk
