@@ -2,8 +2,6 @@ LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),begonia)
 
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
-
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := vendor_symlinks
@@ -27,5 +25,7 @@ $(LOCAL_BUILT_MODULE):
 	@ln -sf libSoftGatekeeper.so $(TARGET_OUT_VENDOR)/lib/hw/gatekeeper.default.so
 	@ln -sf libSoftGatekeeper.so $(TARGET_OUT_VENDOR)/lib64/hw/gatekeeper.default.so
 	$(hide) touch $@
+
+include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 endif
